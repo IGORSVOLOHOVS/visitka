@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Печатная версия визитки - Igors Volohovs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="print.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+    </style>
+</head>
+<body>
+
+    <div class="no-print" style="margin-bottom: 20px; text-align: center; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+        <h3 style="margin-bottom: 10px;">Версия для печати (90x50мм)</h3>
+        <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Нажмите Ctrl+P для печати. Убедитесь, что в настройках печати включены фоновые изображения.</p>
+        <button onclick="window.print()" style="padding: 10px 20px; background: #0044cc; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Напечатать визитку</button>
+    </div>
+
+    <div class="print-sheet">
+        <!-- FRONT SIDE -->
+        <div class="card-print">
+            <div class="main-content">
+                <div class="header-block">
+                    <div class="name">Igors Volohovs</div>
+                    <div class="job-title">C/C++ and Computer Vision Developer</div>
+                </div>
+                
+                <!-- Contacts removed per request -->
+
+                <div class="skills-mini">
+                    <span>C++23</span> • <span>Python</span> • <span>OpenCV</span> • <span>PyTorch</span> • <span>Qt</span> • <span>Linux</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BACK SIDE -->
+        <div class="card-print">
+            <div class="back-layout">
+                <div class="qr-box">
+                    <img src="QR code VCF.jpg" alt="VCF">
+                    <span>Scan to Add VCF</span>
+                </div>
+                <div class="qr-box">
+                    <img src="webpage qr code.png" alt="Website">
+                    <span>igorsvolohovs.github.io</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
