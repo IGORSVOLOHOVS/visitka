@@ -32,7 +32,7 @@
     .contacts { margin-top: 20px; font-family: 'JetBrains Mono', monospace; display: flex; flex-direction: column; gap: 6px; }
     .contacts div { font-size: 30px; color: #a9c2c9; }
     .contacts div::before { content: "> "; color: #39ffc7; }
-    .cta { font-size: 30px; color: #39ffc7; font-family: 'JetBrains Mono', monospace; }
+    .cta { font-size: 30px; color: #39ffc7; font-family: 'JetBrains Mono', monospace; margin-top: 8px; }
     .cta::before { content: "> "; color: #39ffc7; }
     .bottom-row { display: flex; align-items: flex-end; justify-content: space-between; }
     .tags { display: flex; flex-direction: column; gap: 8px; }
@@ -46,7 +46,7 @@
     .tag svg { width: 26px; height: 26px; flex: none; }
     .tag span { font-size: 30px; font-weight: 600; color: #cfe8e0; letter-spacing: 0.3px; }
     .photo-frame { position: relative; padding: 14px; }
-    .photo-frame img { width: 280px; height: 280px; object-fit: cover; display: block; }
+    .photo-frame img { width: 295px; height: 295px; object-fit: cover; display: block; }
     .corner { position: absolute; width: 30px; height: 30px; border: 2px solid #39ffc7; }
     .c-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
     .c-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
@@ -77,7 +77,7 @@
                     <div>{{ phone }}</div>
                     <div>{{ email }}</div>
                 </div>
-                <div class="cta" style="margin-top: 14px;">{{ cta }}</div>
+                <div class="cta">{{ cta }}</div>
             </div>
             <div class="bottom-row">
                 <div class="tags">

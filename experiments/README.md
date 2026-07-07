@@ -33,13 +33,16 @@ if a different photo is preferred.
 
 The photo started out sized like a small avatar (~220-256px) in most
 variants, which read as an afterthought rather than a real design element.
-It's now sized comparably to whatever panel/QR block used to occupy that
-spot per variant - up to 340px, or a full-height 360x503 portrait in
-Minimal - which needed real layout changes in several templates (narrower
-text columns, a smaller name in Big Type, tighter padding in Robotics),
-not just a bigger CSS number. Every crop stays at or below the source
-photo's native 640x640 resolution, so nothing is upscaled past what the
-source can support.
+It went through two enlargement passes - a first pass, then a second after
+Igor flagged QR Centerpiece's circular photo specifically as "still too
+small for how good the composition is" - and now dominates each layout:
+up to 380px square, a 460px circle in QR Centerpiece, or a full-height
+450x535 portrait in Minimal. Getting there needed real layout changes in
+several templates (narrower text columns, a smaller name in Big Type,
+tighter padding in Robotics, a narrower gap in QR Centerpiece), not just a
+bigger CSS number. Every crop stays at or below the source photo's native
+640x640 resolution, so nothing is upscaled past what the source can
+support.
 
 Every QR code encodes `https://igorsvolohovs.github.io/` and was verified
 to decode correctly (OpenCV `QRCodeDetector`). A few early color choices
