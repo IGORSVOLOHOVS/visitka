@@ -43,19 +43,22 @@ image, same dimensions as front).
   "phone": "+ 371 27572 829",
   "email": "igorsvolohovs@gmail.com",
   "url": "https://github.com/IGORSVOLOHOVS/",
-  "qr_data": "https://drive.google.com/file/d/1KZ-9BdiNiwJA-Vhuv_0yth_-QPesE806/view?usp=drivesdk",
+  "qr_data": "https://igorsvolohovs.github.io/",
   "tags": ["AI Intergation", "Computer Vision", "Robotics"]
 }
 ```
 
 - `name`, `title`, `phone`, `email`, `url`, `tags` - printed as text on the
   card.
-- `qr_data` - the payload actually **encoded** into the QR code. This is
-  deliberately a separate field from `url`: decoding the original card's QR
-  code (via OpenCV) showed it points to a Google Drive link, not the GitHub
-  URL printed next to it as text. `card.json` above reproduces that exactly;
-  point `qr_data` at whatever URL/vCard/text you want scanning the card to
-  open.
+- `qr_data` - the payload actually **encoded** into the QR code, kept as a
+  separate field from `url` on purpose: decoding the *original* printed
+  card's QR code (via OpenCV) showed it pointed to a Google Drive link, not
+  the GitHub URL printed next to it as text - so the two were never
+  guaranteed to be the same thing. `qr_data` now points to
+  `https://igorsvolohovs.github.io/`, Igor's existing personal site
+  (confirmed live - same phone/email/GitHub links as this card), while `url`
+  stays the printed GitHub link, unchanged. Point `qr_data` at whatever URL/
+  vCard/text you want scanning the card to open.
 - `tags` can hold any number of entries; note the original artwork has a
   typo ("AI Intergation") which `card.json` reproduces on purpose for an
   accurate pixel comparison against the original design - fix it in your own

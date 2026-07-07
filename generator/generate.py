@@ -37,21 +37,21 @@ DESIGN = {
     "light_bg": "#e8e6e8",
     "text_strong": "#232423",
     "text_muted": "#4a4a4a",
-    "name_size": 61,
+    "name_size": 73,  # +20% over the pixel-matched baseline (61), per request to enlarge all text
     "name_weight": 500,
-    "title_size": 17,
+    "title_size": 20,  # +18%
     "title_weight": 700,
     "title_tracking": 0.42,
-    "contact_size": 21,
+    "contact_size": 25,  # +19%
     "contact_gap": 11,
-    "tag_size": 19,
+    "tag_size": 23,  # +21%
     "tag_weight": 700,
-    "tag_gap": 30,
+    "tag_gap": 22,  # reduced from 30 so the wider tags still fit on one line
     "light_pad_x": 74,
-    "light_pad_top": 94,
-    "title_margin_top": 20,
-    "contacts_margin_top": 79,
-    "tags_margin_top": 100,
+    "light_pad_top": 84,  # nudged up slightly so the taller block still centers well
+    "title_margin_top": 18,
+    "contacts_margin_top": 70,
+    "tags_margin_top": 84,
     "qr_display_frac": "72%",
 }
 
