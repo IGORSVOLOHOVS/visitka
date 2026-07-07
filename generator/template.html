@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* ---- Design constants (fixed for this card design; not part of the config) ---- */
+    :root {
+        --card-w: {{ card_w }}px;
+        --card-h: {{ card_h }}px;
+        --dark-panel-frac: {{ dark_panel_frac }};
+        --dark-bg: {{ dark_bg }};
+        --light-bg: {{ light_bg }};
+        --text-strong: {{ text_strong }};
+        --text-muted: {{ text_muted }};
+        --tag-bg: {{ tag_bg }};
+        --tag-text: {{ tag_text }};
+        --name-size: {{ name_size }}px;
+        --title-size: {{ title_size }}px;
+        --title-tracking: {{ title_tracking }}em;
+        --contact-size: {{ contact_size }}px;
+        --contact-gap: {{ contact_gap }}px;
+        --tag-size: {{ tag_size }}px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { background: transparent; }
+    body { font-family: 'Poppins', Arial, sans-serif; }
+    .card {
+        width: var(--card-w);
+        height: var(--card-h);
+        display: flex;
+        overflow: hidden;
+    }
+    .panel-dark {
+        flex: 0 0 calc(var(--dark-panel-frac) * 100%);
+        background: var(--dark-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .panel-dark img {
+        width: {{ qr_display_frac }};
+        height: auto;
+    }
+    .panel-light {
+        flex: 1;
+        background: var(--light-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: {{ light_pad_top }}px {{ light_pad_x }}px 0;
+    }
+    .name {
+        font-weight: {{ name_weight }};
+        font-size: var(--name-size);
+        color: var(--text-strong);
+        line-height: 1;
+        white-space: nowrap;
+    }
+    .title {
+        font-weight: {{ title_weight }};
+        font-size: var(--title-size);
+        letter-spacing: var(--title-tracking);
+        color: var(--text-strong);
+        margin-top: {{ title_margin_top }}px;
+    }
+    .contacts {
+        margin-top: {{ contacts_margin_top }}px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--contact-gap);
+    }
+    .contacts div {
+        font-weight: 500;
+        font-size: var(--contact-size);
+        color: var(--text-muted);
+    }
+    .tags {
+        margin-top: {{ tags_margin_top }}px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: {{ tag_gap }}px;
+    }
+    .tags span {
+        color: var(--text-strong);
+        font-weight: {{ tag_weight }};
+        font-size: var(--tag-size);
+        white-space: nowrap;
+    }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="panel-dark">
+            <img src="{{ qr_data_uri }}" alt="QR code">
+        </div>
+        <div class="panel-light">
+            <div class="name">{{ name }}</div>
+            <div class="title">{{ title }}</div>
+            <div class="contacts">
+                <div>{{ phone }}</div>
+                <div>{{ email }}</div>
+                <div>{{ url }}</div>
+            </div>
+            <div class="tags">
+                {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
