@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;700&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Manrope', Arial, sans-serif; }
+    .card {
+        width: 1119px;
+        height: 615px;
+        background: #fbfaf8;
+        position: relative;
+        padding: 90px 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .name {
+        font-weight: 200;
+        font-size: 76px;
+        color: #111;
+        letter-spacing: -1px;
+        line-height: 1;
+    }
+    .rule {
+        width: 64px;
+        height: 2px;
+        background: #111;
+        margin: 26px 0 22px;
+    }
+    .title {
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        color: #8a8a8a;
+    }
+    .bottom-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    .contacts div {
+        font-weight: 500;
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 8px;
+    }
+    .tags {
+        margin-top: 18px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #b5b0a6;
+    }
+    .qr-wrap {
+        text-align: center;
+    }
+    .qr-wrap img {
+        width: 108px;
+        height: 108px;
+        display: block; image-rendering: pixelated; }
+    .qr-wrap span {
+        display: block;
+        margin-top: 10px;
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #b5b0a6;
+    }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div>
+            <div class="name">{{ name }}</div>
+            <div class="rule"></div>
+            <div class="title">{{ title }}</div>
+        </div>
+        <div class="bottom-row">
+            <div class="contacts">
+                <div>{{ phone }}</div>
+                <div>{{ email }}</div>
+                <div>{{ url }}</div>
+                <div class="tags">{{ tags|join(' &nbsp;&middot;&nbsp; ') }}</div>
+            </div>
+            <div class="qr-wrap">
+                <img src="{{ qr_uri }}" alt="QR">
+                <span>Scan</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

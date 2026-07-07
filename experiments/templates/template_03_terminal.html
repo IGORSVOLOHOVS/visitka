@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'JetBrains Mono', monospace; }
+    .card {
+        width: 1119px;
+        height: 615px;
+        background: #282c34;
+        display: flex;
+        flex-direction: column;
+    }
+    .titlebar {
+        height: 42px;
+        background: #21252b;
+        display: flex;
+        align-items: center;
+        padding: 0 18px;
+        gap: 8px;
+        border-bottom: 1px solid #181a1f;
+    }
+    .dot { width: 13px; height: 13px; border-radius: 50%; }
+    .dot.red { background: #e0605066; border: 1px solid #e06c75; }
+    .dot.yellow { background: #e5c07b66; border: 1px solid #e5c07b; }
+    .dot.green { background: #98c37966; border: 1px solid #98c379; }
+    .filename {
+        margin-left: 16px;
+        color: #5c6370;
+        font-size: 13px;
+    }
+    .body {
+        flex: 1;
+        padding: 36px 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .code { font-size: 20px; line-height: 1.85; }
+    .ln { color: #495162; display: inline-block; width: 28px; user-select: none; }
+    .kw { color: #c678dd; }
+    .fn { color: #61afef; }
+    .str { color: #98c379; }
+    .com { color: #5c6370; font-style: italic; }
+    .prop { color: #e06c75; }
+    .punct { color: #abb2bf; }
+    .arr { color: #d19a66; }
+    .cursor {
+        display: inline-block;
+        width: 10px; height: 22px;
+        background: #98c379;
+        vertical-align: text-bottom;
+        margin-left: 4px;
+    }
+    .qr-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding-left: 30px;
+    }
+    .qr-panel img {
+        width: 168px;
+        height: 168px;
+        border: 2px solid #3a3f4b;
+        padding: 10px;
+        background: #21252b;
+        border-radius: 4px; image-rendering: pixelated; }
+    .qr-label { color: #5c6370; font-size: 13px; }
+    .qr-label span { color: #98c379; }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="titlebar">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+            <div class="filename">~/contact.ts</div>
+        </div>
+        <div class="body">
+            <div class="code">
+                <div><span class="ln">1</span><span class="kw">const</span> <span class="prop">engineer</span> <span class="punct">=</span> <span class="punct">{</span></div>
+                <div><span class="ln">2</span>&nbsp;&nbsp;<span class="prop">name</span><span class="punct">:</span> <span class="str">"{{ name }}"</span><span class="punct">,</span></div>
+                <div><span class="ln">3</span>&nbsp;&nbsp;<span class="prop">role</span><span class="punct">:</span> <span class="str">"{{ title }}"</span><span class="punct">,</span></div>
+                <div><span class="ln">4</span>&nbsp;&nbsp;<span class="prop">phone</span><span class="punct">:</span> <span class="str">"{{ phone }}"</span><span class="punct">,</span></div>
+                <div><span class="ln">5</span>&nbsp;&nbsp;<span class="prop">email</span><span class="punct">:</span> <span class="str">"{{ email }}"</span><span class="punct">,</span></div>
+                <div><span class="ln">6</span>&nbsp;&nbsp;<span class="prop">github</span><span class="punct">:</span> <span class="str">"{{ url }}"</span><span class="punct">,</span></div>
+                <div><span class="ln">7</span>&nbsp;&nbsp;<span class="prop">stack</span><span class="punct">:</span> <span class="punct">[</span>{% for tag in tags %}<span class="str">"{{ tag }}"</span>{% if not loop.last %}<span class="punct">, </span>{% endif %}{% endfor %}<span class="punct">],</span></div>
+                <div><span class="ln">8</span><span class="punct">}</span><span class="cursor"></span></div>
+            </div>
+            <div class="qr-panel">
+                <img src="{{ qr_uri }}" alt="QR">
+                <div class="qr-label"><span>$</span> scan --connect</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

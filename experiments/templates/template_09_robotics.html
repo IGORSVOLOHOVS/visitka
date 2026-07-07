@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Sora', Arial, sans-serif; }
+    .card {
+        width: 1119px;
+        height: 615px;
+        background: #081018;
+        position: relative;
+        overflow: hidden;
+        padding: 56px 64px;
+    }
+    .circuit {
+        position: absolute; inset: 0;
+        opacity: 0.35;
+    }
+    .content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+    .name { font-weight: 700; font-size: 52px; color: #eafff7; }
+    .title {
+        font-family: 'JetBrains Mono', monospace;
+        margin-top: 8px;
+        font-size: 15px;
+        color: #39ffc7;
+        letter-spacing: 2px;
+    }
+    .title::before { content: "// "; color: #3a5262; }
+    .contacts { margin-top: 26px; font-family: 'JetBrains Mono', monospace; display: flex; flex-direction: column; gap: 7px; }
+    .contacts div { font-size: 15px; color: #a9c2c9; }
+    .contacts div::before { content: "> "; color: #39ffc7; }
+    .bottom-row { display: flex; align-items: flex-end; justify-content: space-between; }
+    .tags { display: flex; gap: 14px; }
+    .tag {
+        display: flex; align-items: center; gap: 8px;
+        border: 1px solid #1f3540;
+        background: #0d1922;
+        padding: 9px 14px;
+        border-radius: 6px;
+    }
+    .tag svg { width: 16px; height: 16px; flex: none; }
+    .tag span { font-size: 12px; font-weight: 600; color: #cfe8e0; letter-spacing: 0.5px; }
+    .qr-frame { position: relative; padding: 12px; }
+    .qr-frame img { width: 128px; height: 128px; display: block; image-rendering: pixelated; }
+    .corner { position: absolute; width: 18px; height: 18px; border: 2px solid #39ffc7; }
+    .c-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+    .c-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+    .c-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+    .c-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        <svg class="circuit" width="1119" height="615" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+                    <path d="M46 0 L0 0 0 46" fill="none" stroke="#1a2c36" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="1119" height="615" fill="url(#grid)"/>
+            <circle cx="960" cy="120" r="3" fill="#39ffc7"/>
+            <circle cx="1040" cy="260" r="3" fill="#39ffc7"/>
+            <path d="M960 120 L1040 120 L1040 260" stroke="#274550" stroke-width="2" fill="none"/>
+            <circle cx="120" cy="520" r="3" fill="#39ffc7"/>
+            <path d="M0 480 L120 480 L120 520 L220 520" stroke="#274550" stroke-width="2" fill="none"/>
+        </svg>
+        <div class="content">
+            <div>
+                <div class="name">{{ name }}</div>
+                <div class="title">{{ title }}</div>
+                <div class="contacts">
+                    <div>{{ phone }}</div>
+                    <div>{{ email }}</div>
+                    <div>{{ url }}</div>
+                </div>
+            </div>
+            <div class="bottom-row">
+                <div class="tags">
+                    <div class="tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#39ffc7" stroke-width="2"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+                        <span>AI Integration</span>
+                    </div>
+                    <div class="tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#39ffc7" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span>Computer Vision</span>
+                    </div>
+                    <div class="tag">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#39ffc7" stroke-width="2"><rect x="4" y="9" width="16" height="10" rx="2"/><path d="M9 9V6a3 3 0 016 0v3M8 14h.01M16 14h.01"/></svg>
+                        <span>Robotics</span>
+                    </div>
+                </div>
+                <div class="qr-frame">
+                    <div class="corner c-tl"></div><div class="corner c-tr"></div>
+                    <div class="corner c-bl"></div><div class="corner c-br"></div>
+                    <img src="{{ qr_uri }}" alt="QR">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

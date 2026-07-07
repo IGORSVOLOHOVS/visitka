@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'IBM Plex Mono', monospace; }
+    .card {
+        width: 1119px;
+        height: 615px;
+        background: #0e2a47;
+        position: relative;
+        overflow: hidden;
+        color: #eaf2fb;
+        padding: 44px 50px;
+    }
+    .grid {
+        position: absolute; inset: 0;
+        background-image:
+            linear-gradient(rgba(234,242,251,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(234,242,251,0.08) 1px, transparent 1px);
+        background-size: 28px 28px;
+    }
+    .grid-major {
+        position: absolute; inset: 0;
+        background-image:
+            linear-gradient(rgba(234,242,251,0.16) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(234,242,251,0.16) 1px, transparent 1px);
+        background-size: 140px 140px;
+    }
+    .content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+    .header { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 2px; color: #7fa4c9; text-transform: uppercase; }
+    .dim-line { position: relative; margin: 26px 0 10px; }
+    .dim-line .line { height: 1px; background: #7fa4c9; position: relative; }
+    .dim-line .line::before, .dim-line .line::after { content: ""; position: absolute; top: -4px; width: 1px; height: 9px; background: #7fa4c9; }
+    .dim-line .line::before { left: 0; } .dim-line .line::after { right: 0; }
+    .name {
+        font-size: 50px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #ffffff;
+    }
+    .title { margin-top: 6px; font-size: 14px; color: #7fa4c9; letter-spacing: 3px; text-transform: uppercase; }
+    .title::before { content: "REF / "; color: #4a6f92; }
+    .titleblock {
+        border: 1.5px solid #7fa4c9;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    }
+    .titleblock .cell { border-right: 1.5px solid #7fa4c9; padding: 10px 14px; }
+    .titleblock .cell:last-child { border-right: none; }
+    .titleblock .label { font-size: 9px; letter-spacing: 1.5px; color: #7fa4c9; text-transform: uppercase; margin-bottom: 4px; }
+    .titleblock .value { font-size: 13px; color: #eaf2fb; }
+    .qr-component {
+        position: absolute;
+        right: 50px;
+        top: 44px;
+        text-align: center;
+        z-index: 5;
+    }
+    .qr-component .frame { border: 1.5px solid #7fa4c9; padding: 10px; background: #0e2a47; }
+    .qr-component img { width: 118px; height: 118px; display: block; image-rendering: pixelated; }
+    .qr-component .tag { margin-top: 6px; font-size: 10px; letter-spacing: 1.5px; color: #7fa4c9; }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="grid"></div>
+        <div class="grid-major"></div>
+        <div class="qr-component">
+            <div class="frame"><img src="{{ qr_uri }}" alt="QR"></div>
+            <div class="tag">QR&#8209;01</div>
+        </div>
+        <div class="content">
+            <div>
+                <div class="header">
+                    <span>DWG NO. IV&#8209;2026&#8209;01</span>
+                    <span>SCALE 1:1</span>
+                </div>
+                <div class="dim-line"><div class="line"></div></div>
+                <div class="name">{{ name }}</div>
+                <div class="title">{{ title }}</div>
+            </div>
+            <div class="titleblock">
+                <div class="cell">
+                    <div class="label">Contact</div>
+                    <div class="value">{{ phone }}</div>
+                    <div class="value">{{ email }}</div>
+                </div>
+                <div class="cell">
+                    <div class="label">Repository</div>
+                    <div class="value">{{ url }}</div>
+                </div>
+                <div class="cell">
+                    <div class="label">Domain 01/02</div>
+                    <div class="value">{{ tags[0] }}</div>
+                    <div class="value">{{ tags[1] }}</div>
+                </div>
+                <div class="cell">
+                    <div class="label">Domain 03</div>
+                    <div class="value">{{ tags[2] }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
