@@ -29,7 +29,7 @@ DATA = {
     "tags": ["AI Integration", "Computer Vision", "Robotics"],
 }
 QR_TARGET = "https://igorsvolohovs.github.io/"
-QR_CAPTION = "igorsvolohovs.github.io"  # must match QR_TARGET's actual domain - do not hardcode "github.com"
+QR_CAPTION = "portfolio"  # case is applied per-variant via caption_transform in BACK_STYLES
 
 
 def file_to_data_uri(path: Path, mime: str) -> str:
@@ -79,12 +79,12 @@ BACK_STYLES = {
     ),
     "variant_02_geometric": dict(
         bg="#0d1b2a", font_family="'Sora', sans-serif", font_href=GOOGLE_FONTS["sora"],
-        caption_weight="700", caption_tracking="2px",
+        caption_weight="700", caption_tracking="2px", caption_transform="uppercase",
         frame_extra="box-shadow: 0 0 0 3px #ffb703;",
     ),
     "variant_03_terminal": dict(
         bg="#282c34", font_family="'JetBrains Mono', monospace", font_href=GOOGLE_FONTS["jetbrains"],
-        caption_weight="500", caption_tracking="0px",
+        caption_weight="500", caption_tracking="0px", caption_transform="lowercase",
         extra_html='<div style="position:absolute;top:40px;left:50px;color:#5c6370;font-size:22px;">~/contact.ts</div>',
         frame_extra="border: 2px solid #3a3f4b;",
     ),
@@ -95,30 +95,30 @@ BACK_STYLES = {
             "radial-gradient(circle at 70% 90%, rgba(130,0,255,0.35), transparent 50%), #120019"
         ),
         font_family="'Sora', sans-serif", font_href=GOOGLE_FONTS["sora"],
-        caption_weight="700", caption_tracking="3px",
+        caption_weight="700", caption_tracking="3px", caption_transform="uppercase",
         frame_extra="box-shadow: 0 0 40px rgba(255,46,196,0.45), 0 0 70px rgba(76,233,255,0.3);",
     ),
     "variant_05_big_type": dict(
         bg="#000000", font_family="'Archivo', sans-serif", font_href=GOOGLE_FONTS["archivo"],
-        caption_weight="700", caption_tracking="1px",
+        caption_weight="700", caption_tracking="1px", caption_transform="uppercase",
     ),
     "variant_06_qr_centerpiece": dict(
         bg="#1c1c1c", font_family="'Space Grotesk', sans-serif", font_href=GOOGLE_FONTS["space_grotesk"],
-        caption_weight="500", caption_tracking="1px",
+        caption_weight="500", caption_tracking="1px", caption_transform="capitalize",
     ),
     "variant_07_accent_color": dict(
         bg="#141414", font_family="'Space Grotesk', sans-serif", font_href=GOOGLE_FONTS["space_grotesk"],
-        caption_weight="700", caption_tracking="1px",
+        caption_weight="700", caption_tracking="1px", caption_transform="uppercase",
         frame_extra="border: 3px solid #ff4d1c;",
     ),
     "variant_08_corporate": dict(
         bg="#0b2545", font_family="'IBM Plex Serif', serif", font_href=GOOGLE_FONTS["plex_serif"],
-        caption_weight="600", caption_tracking="3px",
+        caption_weight="600", caption_tracking="3px", caption_transform="uppercase",
         extra_html='<div style="position:relative;z-index:2;width:80px;height:1px;background:#c9a24b;margin-bottom:6px;"></div>',
     ),
     "variant_09_robotics": dict(
         bg="#081018", font_family="'Sora', sans-serif", font_href=GOOGLE_FONTS["sora"],
-        caption_weight="600", caption_tracking="1px",
+        caption_weight="600", caption_tracking="1px", caption_transform="lowercase",
         extra_css=(
             ".circuit{position:absolute;inset:0;opacity:.35;"
             "background-image:linear-gradient(#1a2c36 1px,transparent 1px),"
@@ -129,7 +129,7 @@ BACK_STYLES = {
     ),
     "variant_10_blueprint": dict(
         bg="#0e2a47", font_family="'IBM Plex Mono', monospace", font_href=GOOGLE_FONTS["plex_mono"],
-        caption_weight="500", caption_tracking="2px",
+        caption_weight="500", caption_tracking="2px", caption_transform="uppercase",
         extra_css=(
             ".gridbg{position:absolute;inset:0;"
             "background-image:linear-gradient(rgba(234,242,251,0.08) 1px,transparent 1px),"
