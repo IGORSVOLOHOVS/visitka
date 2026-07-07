@@ -29,6 +29,7 @@ DATA = {
     "tags": ["AI Integration", "Computer Vision", "Robotics"],
 }
 QR_TARGET = "https://igorsvolohovs.github.io/"
+QR_CAPTION = "igorsvolohovs.github.io"  # must match QR_TARGET's actual domain - do not hardcode "github.com"
 
 
 def file_to_data_uri(path: Path, mime: str) -> str:
@@ -160,7 +161,7 @@ def main() -> None:
 
         back_template = env.get_template("template_back_shared.html")
         for slug, style in BACK_STYLES.items():
-            context = dict(qr_uri=qr_uri, caption="github.com")
+            context = dict(qr_uri=qr_uri, caption=QR_CAPTION)
             context.update(style)
             html = back_template.render(**context)
             out_dir = HERE / slug

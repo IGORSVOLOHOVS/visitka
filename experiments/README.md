@@ -15,10 +15,11 @@ Following design feedback, the card content is now split across both sides:
   variant-flavored CTA line (e.g. "Portfolio on the back", `// portfolio ->
   flip card`, "SEE SHEET 2 / PORTFOLIO") - no printed URL, since a URL next
   to a QR code that encodes the same URL is redundant.
-- **Back** (previously blank): a single centered QR code with a
-  `github.com` caption underneath, styled per-variant (background, font,
-  frame) via a shared template so all ten stay visually consistent with
-  their front.
+- **Back** (previously blank): a single centered QR code with an
+  `igorsvolohovs.github.io` caption underneath (the QR's actual domain -
+  not "github.com", which would point somewhere else entirely), styled
+  per-variant (background, font, frame) via a shared template so all ten
+  stay visually consistent with their front.
 
 **The photo.** The brief was explicit: use a real photo of Igor or flag it
 and fall back gracefully - never fabricate or substitute a generic image.
