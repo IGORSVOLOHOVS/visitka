@@ -31,6 +31,16 @@ photo was used as the primary (`experiments/assets/photo.png`) since it's
 already the public-facing one; `me.png` is the readily available fallback
 if a different photo is preferred.
 
+The photo started out sized like a small avatar (~220-256px) in most
+variants, which read as an afterthought rather than a real design element.
+It's now sized comparably to whatever panel/QR block used to occupy that
+spot per variant - up to 340px, or a full-height 360x503 portrait in
+Minimal - which needed real layout changes in several templates (narrower
+text columns, a smaller name in Big Type, tighter padding in Robotics),
+not just a bigger CSS number. Every crop stays at or below the source
+photo's native 640x640 resolution, so nothing is upscaled past what the
+source can support.
+
 Every QR code encodes `https://igorsvolohovs.github.io/` and was verified
 to decode correctly (OpenCV `QRCodeDetector`). A few early color choices
 (green-on-dark, white-on-dark) looked thematically nice but failed to
@@ -207,3 +217,14 @@ earlier QR-sizing pass):
 - **CTA double-prefix**: two templates (terminal, robotics) render their
   own `// ` / `> ` prefix in CSS *and* had it baked into the CTA string,
   producing a doubled prefix - fixed by keeping the prefix only in the CSS.
+- **Tags running behind the photo** (variant 7, after enlarging the photo):
+  the tag row had no `max-width`, so growing the absolutely-positioned
+  photo panel didn't shrink the text's available width - the flex-wrap
+  never triggered and "Robotics" rendered half-hidden under the photo.
+  Fixed by capping the tag row's width so it wraps before reaching the
+  photo's left edge.
+- **Photo/titleblock collision** (variant 10, after enlarging the photo):
+  a bigger photo pushed its "PHOTO-01" caption down into the drafting
+  title block's "NOTES" header. Fixed by trimming the photo a bit and
+  raising it slightly to restore clearance on both sides (the "SCALE 1:1"
+  header above, the title block below).
