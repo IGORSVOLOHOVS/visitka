@@ -12,14 +12,17 @@
         height: 615px;
         background: #fbfaf8;
         position: relative;
-        padding: 90px 100px;
+        padding: 66px 90px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
         justify-content: space-between;
+        gap: 40px;
     }
+    .left { max-width: 620px; }
     .name {
         font-weight: 200;
-        font-size: 76px;
+        font-size: 68px;
         color: #111;
         letter-spacing: -1px;
         line-height: 1;
@@ -28,7 +31,7 @@
         width: 64px;
         height: 2px;
         background: #111;
-        margin: 26px 0 22px;
+        margin: 24px 0 20px;
     }
     .title {
         font-weight: 700;
@@ -37,11 +40,7 @@
         text-transform: uppercase;
         color: #8a8a8a;
     }
-    .bottom-row {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-    }
+    .contacts { margin-top: 34px; }
     .contacts div {
         font-weight: 500;
         font-size: 18px;
@@ -58,16 +57,19 @@
     }
     .qr-wrap {
         text-align: center;
+        flex: none;
     }
     .qr-wrap img {
-        width: 108px;
-        height: 108px;
-        display: block; image-rendering: pixelated; }
+        width: 256px;
+        height: 256px;
+        display: block;
+        image-rendering: pixelated;
+    }
     .qr-wrap span {
         display: block;
-        margin-top: 10px;
-        font-size: 10px;
-        letter-spacing: 3px;
+        margin-top: 14px;
+        font-size: 11px;
+        letter-spacing: 4px;
         text-transform: uppercase;
         color: #b5b0a6;
     }
@@ -75,22 +77,20 @@
 </head>
 <body>
     <div class="card" id="card">
-        <div>
+        <div class="left">
             <div class="name">{{ name }}</div>
             <div class="rule"></div>
             <div class="title">{{ title }}</div>
-        </div>
-        <div class="bottom-row">
             <div class="contacts">
                 <div>{{ phone }}</div>
                 <div>{{ email }}</div>
                 <div>{{ url }}</div>
                 <div class="tags">{{ tags|join(' &nbsp;&middot;&nbsp; ') }}</div>
             </div>
-            <div class="qr-wrap">
-                <img src="{{ qr_uri }}" alt="QR">
-                <span>Scan</span>
-            </div>
+        </div>
+        <div class="qr-wrap">
+            <img src="{{ qr_uri }}" alt="QR">
+            <span>Scan</span>
         </div>
     </div>
 </body>

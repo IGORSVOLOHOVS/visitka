@@ -12,71 +12,70 @@
         height: 615px;
         background: #ffffff;
         border: 1px solid #d9dee5;
-        padding: 56px 72px;
+        padding: 34px 72px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        text-align: center;
+        justify-content: space-between;
     }
+    .left { text-align: left; flex: 1; }
     .monogram {
-        width: 74px; height: 74px;
+        width: 58px; height: 58px;
         border: 2px solid #0b2545;
         border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
         font-family: 'IBM Plex Serif', serif;
         font-weight: 600;
-        font-size: 26px;
+        font-size: 21px;
         color: #0b2545;
-        margin-bottom: 22px;
+        margin-bottom: 16px;
     }
     .name {
         font-family: 'IBM Plex Serif', serif;
         font-weight: 600;
-        font-size: 40px;
+        font-size: 38px;
         color: #0b2545;
         letter-spacing: 0.5px;
     }
     .title {
-        margin-top: 8px;
-        font-size: 14px;
+        margin-top: 6px;
+        font-size: 13px;
         font-weight: 500;
         letter-spacing: 4px;
         text-transform: uppercase;
         color: #8b93a1;
     }
-    .hr { width: 90px; height: 1px; background: #c9a24b; margin: 24px 0; }
-    .contacts { display: flex; gap: 34px; font-size: 15px; color: #33445c; font-weight: 400; }
-    .tags { margin-top: 20px; display: flex; gap: 22px; }
-    .tags span { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #0b2545; }
-    .footer {
-        margin-top: auto;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        border-top: 1px solid #e4e8ee;
-        padding-top: 22px;
-        width: 100%;
-        justify-content: center;
+    .hr { width: 80px; height: 1px; background: #c9a24b; margin: 18px 0; }
+    .contacts { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #33445c; font-weight: 400; }
+    .tags { margin-top: 16px; display: flex; gap: 18px; }
+    .tags span { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #0b2545; }
+    .right {
+        flex: none;
+        text-align: center;
+        padding-left: 40px;
+        border-left: 1px solid #e4e8ee;
     }
-    .footer img { width: 108px; height: 108px; image-rendering: pixelated; }
-    .footer .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8b93a1; }
+    .right img { width: 256px; height: 256px; display: block; image-rendering: pixelated; margin: 0 auto; }
+    .right .label { margin-top: 14px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8b93a1; }
 </style>
 </head>
 <body>
     <div class="card" id="card">
-        <div class="monogram">IV</div>
-        <div class="name">{{ name }}</div>
-        <div class="title">{{ title }}</div>
-        <div class="hr"></div>
-        <div class="contacts">
-            <div>{{ phone }}</div>
-            <div>{{ email }}</div>
-            <div>{{ url }}</div>
+        <div class="left">
+            <div class="monogram">IV</div>
+            <div class="name">{{ name }}</div>
+            <div class="title">{{ title }}</div>
+            <div class="hr"></div>
+            <div class="contacts">
+                <div>{{ phone }}</div>
+                <div>{{ email }}</div>
+                <div>{{ url }}</div>
+            </div>
+            <div class="tags">
+                {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
+            </div>
         </div>
-        <div class="tags">
-            {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
-        </div>
-        <div class="footer">
+        <div class="right">
             <img src="{{ qr_uri }}" alt="QR">
             <div class="label">Scan to<br>connect</div>
         </div>
