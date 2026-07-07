@@ -12,7 +12,7 @@
         height: 615px;
         background: #ffffff;
         position: relative;
-        padding: 70px 80px;
+        padding: 60px 80px;
         overflow: hidden;
     }
     .accent-circle {
@@ -24,34 +24,35 @@
         top: -140px;
     }
     .accent-bar { position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: #ff4d1c; }
-    .name { font-weight: 700; font-size: 60px; color: #111; line-height: 1.05; position: relative; z-index: 2; }
+    .name { font-weight: 700; font-size: 56px; color: #111; line-height: 1.05; position: relative; z-index: 2; }
     .title {
         display: inline-block;
-        margin-top: 14px;
+        margin-top: 12px;
         background: #111;
         color: #ff4d1c;
         font-weight: 700;
-        font-size: 15px;
-        letter-spacing: 2px;
+        font-size: 30px;
+        letter-spacing: 1px;
         text-transform: uppercase;
         padding: 7px 16px;
         position: relative;
         z-index: 2;
     }
-    .contacts { margin-top: 40px; position: relative; z-index: 2; }
-    .contacts div { font-size: 18px; color: #333; margin-bottom: 9px; font-weight: 400; }
-    .tags { margin-top: 26px; display: flex; gap: 24px; position: relative; z-index: 2; }
-    .tags span { font-size: 14px; font-weight: 700; color: #ff4d1c; text-transform: uppercase; letter-spacing: 1px; }
-    .qr-wrap {
+    .contacts { margin-top: 30px; position: relative; z-index: 2; }
+    .contacts div { font-size: 30px; color: #333; margin-bottom: 9px; font-weight: 400; }
+    .tags { margin-top: 22px; display: flex; gap: 22px; position: relative; z-index: 2; flex-wrap: wrap; }
+    .tags span { font-size: 30px; font-weight: 700; color: #ff4d1c; text-transform: uppercase; letter-spacing: 1px; }
+    .cta { margin-top: 20px; font-size: 30px; font-weight: 700; letter-spacing: 1px; color: #111; text-transform: uppercase; position: relative; z-index: 2; }
+    .photo-wrap {
         position: absolute;
         right: 60px;
         bottom: 54px;
         z-index: 3;
         background: #fff;
-        padding: 12px;
+        padding: 8px;
         border: 3px solid #111;
     }
-    .qr-wrap img { width: 256px; height: 256px; display: block; image-rendering: pixelated; }
+    .photo-wrap img { width: 220px; height: 220px; object-fit: cover; display: block; }
 </style>
 </head>
 <body>
@@ -63,12 +64,12 @@
         <div class="contacts">
             <div>{{ phone }}</div>
             <div>{{ email }}</div>
-            <div>{{ url }}</div>
         </div>
         <div class="tags">
             {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
         </div>
-        <div class="qr-wrap"><img src="{{ qr_uri }}" alt="QR"></div>
+        <div class="cta">{{ cta }}</div>
+        <div class="photo-wrap"><img src="{{ photo_uri }}" alt="Igors Volohovs"></div>
     </div>
 </body>
 </html>

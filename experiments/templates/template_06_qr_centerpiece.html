@@ -17,15 +17,17 @@
         gap: 72px;
         padding: 0 90px;
     }
-    .qr-anchor {
+    .photo-anchor {
         position: relative;
         flex: 0 0 auto;
     }
-    .qr-anchor img {
+    .photo-anchor img {
         width: 300px;
         height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
         display: block;
-        mix-blend-mode: multiply; image-rendering: pixelated; }
+    }
     .ring {
         position: absolute;
         inset: -22px;
@@ -39,13 +41,12 @@
         transform: translateX(-50%);
         background: #1c1c1c;
         color: #f4f1ea;
-        font-size: 12px;
+        font-size: 30px;
         font-weight: 500;
-        letter-spacing: 2px;
-        padding: 7px 18px;
+        letter-spacing: 1px;
+        padding: 8px 20px;
         border-radius: 999px;
         white-space: nowrap;
-        text-transform: uppercase;
     }
     .text-side { max-width: 520px; }
     .name {
@@ -56,29 +57,29 @@
     }
     .title {
         font-weight: 500;
-        font-size: 18px;
+        font-size: 30px;
         color: #6b6559;
         margin-top: 8px;
     }
     .divider { width: 44px; height: 3px; background: #1c1c1c; margin: 22px 0; }
-    .contacts div { font-size: 17px; color: #37332c; margin-bottom: 7px; }
+    .contacts div { font-size: 30px; color: #37332c; margin-bottom: 9px; }
     .tags { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
     .tags span {
-        font-size: 13px;
+        font-size: 30px;
         font-weight: 500;
         color: #1c1c1c;
         border: 1px solid #1c1c1c;
-        padding: 6px 14px;
+        padding: 6px 15px;
         border-radius: 999px;
     }
 </style>
 </head>
 <body>
     <div class="card" id="card">
-        <div class="qr-anchor">
+        <div class="photo-anchor">
             <div class="ring"></div>
-            <img src="{{ qr_uri }}" alt="QR">
-            <div class="badge">Scan me</div>
+            <img src="{{ photo_uri }}" alt="Igors Volohovs">
+            <div class="badge">{{ cta }}</div>
         </div>
         <div class="text-side">
             <div class="name">{{ name }}</div>
@@ -87,7 +88,6 @@
             <div class="contacts">
                 <div>{{ phone }}</div>
                 <div>{{ email }}</div>
-                <div>{{ url }}</div>
             </div>
             <div class="tags">
                 {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}

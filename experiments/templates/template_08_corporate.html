@@ -20,13 +20,13 @@
     }
     .left { text-align: left; flex: 1; }
     .monogram {
-        width: 58px; height: 58px;
+        width: 70px; height: 70px;
         border: 2px solid #0b2545;
         border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
         font-family: 'IBM Plex Serif', serif;
         font-weight: 600;
-        font-size: 21px;
+        font-size: 30px;
         color: #0b2545;
         margin-bottom: 16px;
     }
@@ -39,24 +39,24 @@
     }
     .title {
         margin-top: 6px;
-        font-size: 13px;
+        font-size: 30px;
         font-weight: 500;
-        letter-spacing: 4px;
+        letter-spacing: 1px;
         text-transform: uppercase;
         color: #8b93a1;
     }
     .hr { width: 80px; height: 1px; background: #c9a24b; margin: 18px 0; }
-    .contacts { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #33445c; font-weight: 400; }
-    .tags { margin-top: 16px; display: flex; gap: 18px; }
-    .tags span { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #0b2545; }
+    .contacts { display: flex; flex-direction: column; gap: 6px; font-size: 30px; color: #33445c; font-weight: 400; }
+    .tags { margin-top: 16px; display: flex; gap: 18px; flex-wrap: wrap; }
+    .tags span { font-size: 30px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #0b2545; }
     .right {
         flex: none;
         text-align: center;
         padding-left: 40px;
         border-left: 1px solid #e4e8ee;
     }
-    .right img { width: 256px; height: 256px; display: block; image-rendering: pixelated; margin: 0 auto; }
-    .right .label { margin-top: 14px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8b93a1; }
+    .right img { width: 220px; height: 220px; object-fit: cover; display: block; margin: 0 auto; border-radius: 4px; }
+    .right .cta { margin-top: 14px; font-size: 30px; letter-spacing: 0.5px; color: #8b93a1; max-width: 260px; line-height: 1.25; }
 </style>
 </head>
 <body>
@@ -69,15 +69,14 @@
             <div class="contacts">
                 <div>{{ phone }}</div>
                 <div>{{ email }}</div>
-                <div>{{ url }}</div>
             </div>
             <div class="tags">
                 {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
             </div>
         </div>
         <div class="right">
-            <img src="{{ qr_uri }}" alt="QR">
-            <div class="label">Scan to<br>connect</div>
+            <img src="{{ photo_uri }}" alt="Igors Volohovs">
+            <div class="cta">{{ cta }}</div>
         </div>
     </div>
 </body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="{{ font_href }}" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: {{ font_family }}; }
+    .card {
+        width: 1119px;
+        height: 615px;
+        background: {{ bg }};
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        position: relative;
+        overflow: hidden;
+    }
+    {{ extra_css }}
+    .qr-frame {
+        position: relative;
+        z-index: 2;
+        background: #ffffff;
+        padding: 16px;
+        border-radius: {{ radius|default('10px') }};
+        {{ frame_extra }}
+    }
+    .qr-frame img { width: 260px; height: 260px; display: block; image-rendering: pixelated; }
+    .caption {
+        position: relative;
+        z-index: 2;
+        color: {{ text_color|default('#ffffff') }};
+        font-size: 32px;
+        font-weight: {{ caption_weight|default('600') }};
+        letter-spacing: {{ caption_tracking|default('2px') }};
+        text-transform: {{ caption_transform|default('none') }};
+    }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        {{ extra_html|safe }}
+        <div class="qr-frame"><img src="{{ qr_uri }}" alt="QR"></div>
+        <div class="caption">{{ caption }}</div>
+    </div>
+</body>
+</html>

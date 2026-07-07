@@ -15,62 +15,67 @@
         flex-direction: column;
     }
     .titlebar {
-        height: 42px;
+        height: 58px;
         background: #21252b;
         display: flex;
         align-items: center;
         padding: 0 18px;
-        gap: 8px;
+        gap: 10px;
         border-bottom: 1px solid #181a1f;
     }
-    .dot { width: 13px; height: 13px; border-radius: 50%; }
+    .dot { width: 15px; height: 15px; border-radius: 50%; }
     .dot.red { background: #e0605066; border: 1px solid #e06c75; }
     .dot.yellow { background: #e5c07b66; border: 1px solid #e5c07b; }
     .dot.green { background: #98c37966; border: 1px solid #98c379; }
     .filename {
         margin-left: 16px;
         color: #5c6370;
-        font-size: 13px;
+        font-size: 30px;
     }
     .body {
         flex: 1;
-        padding: 36px 50px;
+        padding: 22px 46px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
-    .code { font-size: 17px; line-height: 1.9; white-space: nowrap; }
-    .ln { color: #495162; display: inline-block; width: 28px; user-select: none; }
+    .code { font-size: 30px; line-height: 1.4; }
+    .ln { color: #495162; display: inline-block; width: 34px; user-select: none; }
     .kw { color: #c678dd; }
-    .fn { color: #61afef; }
     .str { color: #98c379; }
-    .com { color: #5c6370; font-style: italic; }
     .prop { color: #e06c75; }
     .punct { color: #abb2bf; }
-    .arr { color: #d19a66; }
+    .com { color: #5c6370; }
     .cursor {
         display: inline-block;
-        width: 10px; height: 22px;
+        width: 12px; height: 26px;
         background: #98c379;
         vertical-align: text-bottom;
         margin-left: 4px;
     }
-    .qr-panel {
+    .avatar-panel {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 14px;
-        padding-left: 30px;
+        gap: 10px;
+        padding-left: 20px;
     }
-    .qr-panel img {
-        width: 256px;
-        height: 256px;
+    .avatar-panel .tab {
+        color: #5c6370;
+        font-size: 30px;
+        align-self: flex-start;
+        margin-left: 4px;
+    }
+    .avatar-panel img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
         border: 2px solid #3a3f4b;
-        padding: 12px;
+        padding: 10px;
         background: #21252b;
-        border-radius: 4px; image-rendering: pixelated; }
-    .qr-label { color: #5c6370; font-size: 13px; }
-    .qr-label span { color: #98c379; }
+        border-radius: 4px;
+    }
 </style>
 </head>
 <body>
@@ -86,13 +91,14 @@
                 <div><span class="ln">3</span>&nbsp;&nbsp;<span class="prop">role</span><span class="punct">:</span> <span class="str">"{{ title }}"</span><span class="punct">,</span></div>
                 <div><span class="ln">4</span>&nbsp;&nbsp;<span class="prop">phone</span><span class="punct">:</span> <span class="str">"{{ phone }}"</span><span class="punct">,</span></div>
                 <div><span class="ln">5</span>&nbsp;&nbsp;<span class="prop">email</span><span class="punct">:</span> <span class="str">"{{ email }}"</span><span class="punct">,</span></div>
-                <div><span class="ln">6</span>&nbsp;&nbsp;<span class="prop">github</span><span class="punct">:</span> <span class="str">"{{ url }}"</span><span class="punct">,</span></div>
-                <div><span class="ln">7</span>&nbsp;&nbsp;<span class="prop">stack</span><span class="punct">:</span> <span class="punct">[</span>{% for tag in tags %}<span class="str">"{{ tag }}"</span>{% if not loop.last %}<span class="punct">, </span>{% endif %}{% endfor %}<span class="punct">],</span></div>
-                <div><span class="ln">8</span><span class="punct">}</span><span class="cursor"></span></div>
+                <div><span class="ln">6</span>&nbsp;&nbsp;<span class="prop">stack</span><span class="punct">:</span> <span class="punct">[</span></div>
+                {% for tag in tags %}<div><span class="ln">{{ 7 + loop.index0 }}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"{{ tag }}"</span><span class="punct">,</span></div>
+                {% endfor %}<div><span class="ln">{{ 7 + tags|length }}</span>&nbsp;&nbsp;<span class="punct">],</span></div>
+                <div><span class="ln">{{ 8 + tags|length }}</span><span class="punct">}</span><span class="cursor"></span>&nbsp;&nbsp;<span class="com">// {{ cta }}</span></div>
             </div>
-            <div class="qr-panel">
-                <img src="{{ qr_uri }}" alt="QR">
-                <div class="qr-label"><span>$</span> scan --connect</div>
+            <div class="avatar-panel">
+                <span class="tab">avatar.png</span>
+                <img src="{{ photo_uri }}" alt="Igors Volohovs">
             </div>
         </div>
     </div>

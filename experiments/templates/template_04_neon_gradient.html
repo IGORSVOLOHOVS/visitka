@@ -17,7 +17,7 @@
             #120019;
         position: relative;
         overflow: hidden;
-        padding: 64px 72px;
+        padding: 56px 64px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -30,44 +30,59 @@
         background-size: 38px 38px;
     }
     .content { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; }
-    .left { max-width: 580px; }
+    .left { max-width: 560px; }
     .name {
         font-weight: 800;
-        font-size: 62px;
+        font-size: 58px;
         color: #ffffff;
         line-height: 1.05;
         text-shadow: 0 0 6px #ff2ec4, 0 0 22px #ff2ec4aa, 0 0 46px #7a2effaa;
     }
     .title {
-        margin-top: 12px;
+        margin-top: 10px;
         font-weight: 600;
-        font-size: 17px;
-        letter-spacing: 4px;
+        font-size: 30px;
+        letter-spacing: 2px;
         text-transform: uppercase;
         color: #4ce9ff;
         text-shadow: 0 0 10px #4ce9ff88;
     }
-    .contacts { margin-top: 30px; display: flex; flex-direction: column; gap: 9px; }
-    .contacts div { font-weight: 300; font-size: 17px; color: #e4d9f5; }
-    .tags { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .contacts { margin-top: 22px; display: flex; flex-direction: column; gap: 8px; }
+    .contacts div { font-weight: 300; font-size: 30px; color: #e4d9f5; }
+    .tags { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
     .tags span {
-        font-size: 13px;
+        font-size: 30px;
         font-weight: 600;
-        padding: 8px 16px;
+        padding: 7px 15px;
         border-radius: 999px;
         color: #ffffff;
         border: 1px solid #ffffff55;
         background: rgba(255,255,255,0.06);
         box-shadow: 0 0 14px rgba(76,233,255,0.35);
     }
-    .qr-wrap {
+    .cta {
+        margin-top: 18px;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ff2ec4aa;
+    }
+    .photo-wrap {
         background: rgba(255,255,255,0.04);
         border: 1px solid #ffffff33;
         border-radius: 18px;
-        padding: 18px;
+        padding: 14px;
         box-shadow: 0 0 40px rgba(255,46,196,0.35), 0 0 70px rgba(76,233,255,0.2);
+        flex: none;
     }
-    .qr-wrap img { width: 256px; height: 256px; display: block; border-radius: 6px; image-rendering: pixelated; }
+    .photo-wrap img {
+        width: 256px; height: 256px;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px;
+        filter: contrast(1.1) saturate(1.25);
+    }
 </style>
 </head>
 <body>
@@ -80,13 +95,13 @@
                 <div class="contacts">
                     <div>{{ phone }}</div>
                     <div>{{ email }}</div>
-                    <div>{{ url }}</div>
                 </div>
                 <div class="tags">
                     {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
                 </div>
+                <div class="cta">{{ cta }}</div>
             </div>
-            <div class="qr-wrap"><img src="{{ qr_uri }}" alt="QR"></div>
+            <div class="photo-wrap"><img src="{{ photo_uri }}" alt="Igors Volohovs"></div>
         </div>
     </div>
 </body>

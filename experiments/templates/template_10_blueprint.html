@@ -14,7 +14,7 @@
         position: relative;
         overflow: hidden;
         color: #eaf2fb;
-        padding: 44px 50px;
+        padding: 34px 50px;
     }
     .grid {
         position: absolute; inset: 0;
@@ -31,8 +31,8 @@
         background-size: 140px 140px;
     }
     .content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-    .header { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 2px; color: #7fa4c9; text-transform: uppercase; }
-    .dim-line { position: relative; margin: 26px 0 10px; }
+    .header { display: flex; justify-content: space-between; font-size: 30px; letter-spacing: 1px; color: #7fa4c9; text-transform: uppercase; }
+    .dim-line { position: relative; margin: 14px 0 10px; }
     .dim-line .line { height: 1px; background: #7fa4c9; position: relative; }
     .dim-line .line::before, .dim-line .line::after { content: ""; position: absolute; top: -4px; width: 1px; height: 9px; background: #7fa4c9; }
     .dim-line .line::before { left: 0; } .dim-line .line::after { right: 0; }
@@ -42,36 +42,36 @@
         letter-spacing: 1px;
         color: #ffffff;
     }
-    .title { margin-top: 6px; font-size: 14px; color: #7fa4c9; letter-spacing: 3px; text-transform: uppercase; }
+    .title { margin-top: 6px; font-size: 30px; color: #7fa4c9; letter-spacing: 1px; text-transform: uppercase; }
     .title::before { content: "REF / "; color: #4a6f92; }
     .titleblock {
         border: 1.5px solid #7fa4c9;
         display: grid;
-        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1.3fr 1.1fr;
     }
-    .titleblock .cell { border-right: 1.5px solid #7fa4c9; padding: 10px 14px; }
+    .titleblock .cell { border-right: 1.5px solid #7fa4c9; padding: 10px 16px; }
     .titleblock .cell:last-child { border-right: none; }
-    .titleblock .label { font-size: 9px; letter-spacing: 1.5px; color: #7fa4c9; text-transform: uppercase; margin-bottom: 4px; }
-    .titleblock .value { font-size: 13px; color: #eaf2fb; }
-    .qr-component {
+    .titleblock .label { font-size: 30px; letter-spacing: 1px; color: #7fa4c9; text-transform: uppercase; margin-bottom: 6px; }
+    .titleblock .value { font-size: 30px; color: #eaf2fb; line-height: 1.3; word-break: break-word; }
+    .photo-component {
         position: absolute;
         right: 50px;
-        top: 44px;
+        top: 92px;
         text-align: center;
         z-index: 5;
     }
-    .qr-component .frame { border: 1.5px solid #7fa4c9; padding: 14px; background: #0e2a47; }
-    .qr-component img { width: 256px; height: 256px; display: block; image-rendering: pixelated; }
-    .qr-component .tag { margin-top: 6px; font-size: 10px; letter-spacing: 1.5px; color: #7fa4c9; }
+    .photo-component .frame { border: 1.5px solid #7fa4c9; padding: 10px; background: #0e2a47; }
+    .photo-component img { width: 220px; height: 220px; object-fit: cover; display: block; }
+    .photo-component .tag { margin-top: 8px; font-size: 30px; letter-spacing: 1px; color: #7fa4c9; }
 </style>
 </head>
 <body>
     <div class="card" id="card">
         <div class="grid"></div>
         <div class="grid-major"></div>
-        <div class="qr-component">
-            <div class="frame"><img src="{{ qr_uri }}" alt="QR"></div>
-            <div class="tag">QR&#8209;01</div>
+        <div class="photo-component">
+            <div class="frame"><img src="{{ photo_uri }}" alt="Igors Volohovs"></div>
+            <div class="tag">PHOTO&#8209;01</div>
         </div>
         <div class="content">
             <div>
@@ -90,17 +90,12 @@
                     <div class="value">{{ email }}</div>
                 </div>
                 <div class="cell">
-                    <div class="label">Repository</div>
-                    <div class="value">{{ url }}</div>
+                    <div class="label">Domains</div>
+                    <div class="value">{{ tags|join(', ') }}</div>
                 </div>
                 <div class="cell">
-                    <div class="label">Domain 01/02</div>
-                    <div class="value">{{ tags[0] }}</div>
-                    <div class="value">{{ tags[1] }}</div>
-                </div>
-                <div class="cell">
-                    <div class="label">Domain 03</div>
-                    <div class="value">{{ tags[2] }}</div>
+                    <div class="label">Notes</div>
+                    <div class="value">{{ cta }}</div>
                 </div>
             </div>
         </div>

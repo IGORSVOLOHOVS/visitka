@@ -39,64 +39,74 @@
         flex-direction: column;
         justify-content: center;
         padding: 0 0 0 78px;
-        width: 58%;
+        width: 55%;
     }
     .name {
         font-weight: 800;
-        font-size: 54px;
+        font-size: 50px;
         color: #ffffff;
         line-height: 1.05;
     }
     .title {
         font-weight: 600;
-        font-size: 16px;
-        letter-spacing: 3px;
+        font-size: 30px;
+        letter-spacing: 2px;
         text-transform: uppercase;
         color: #ffb703;
         margin-top: 10px;
     }
     .contacts {
-        margin-top: 34px;
+        margin-top: 26px;
         display: flex;
         flex-direction: column;
         gap: 8px;
     }
     .contacts div {
         font-weight: 400;
-        font-size: 17px;
+        font-size: 30px;
         color: #dfe6ee;
+    }
+    .cta {
+        margin-top: 18px;
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: 1.5px;
+        color: #ffb703;
     }
     .tags {
         position: absolute;
         left: 78px;
-        bottom: 56px;
+        bottom: 40px;
         display: flex;
         gap: 10px;
         z-index: 3;
+        flex-wrap: wrap;
     }
     .tags span {
         background: #ffb703;
         color: #0d1b2a;
         font-weight: 700;
-        font-size: 13px;
+        font-size: 30px;
         padding: 7px 14px;
         border-radius: 3px;
         transform: skewX(-8deg);
         display: inline-block;
     }
-    .qr-box {
+    .photo-box {
         position: absolute;
         right: 44px;
         bottom: 48px;
         background: #ffffff;
-        padding: 18px;
+        padding: 10px;
         border-radius: 8px;
         box-shadow: 0 14px 32px rgba(13,27,42,0.3);
     }
-    .qr-box img {
-        width: 256px;
-        height: 256px;
-        display: block; image-rendering: pixelated; }
+    .photo-box img {
+        width: 256px; height: 256px;
+        object-fit: cover;
+        display: block;
+        border-radius: 3px;
+    }
 </style>
 </head>
 <body>
@@ -109,13 +119,13 @@
             <div class="contacts">
                 <div>{{ phone }}</div>
                 <div>{{ email }}</div>
-                <div>{{ url }}</div>
             </div>
+            <div class="cta">{{ cta }}</div>
         </div>
         <div class="tags">
             {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
         </div>
-        <div class="qr-box"><img src="{{ qr_uri }}" alt="QR"></div>
+        <div class="photo-box"><img src="{{ photo_uri }}" alt="Igors Volohovs"></div>
     </div>
 </body>
 </html>

@@ -12,17 +12,17 @@
         height: 615px;
         background: #fbfaf8;
         position: relative;
-        padding: 66px 90px;
+        padding: 56px 80px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 40px;
     }
-    .left { max-width: 620px; }
+    .left { max-width: 600px; }
     .name {
         font-weight: 200;
-        font-size: 68px;
+        font-size: 66px;
         color: #111;
         letter-spacing: -1px;
         line-height: 1;
@@ -31,47 +31,45 @@
         width: 64px;
         height: 2px;
         background: #111;
-        margin: 24px 0 20px;
+        margin: 20px 0 16px;
     }
     .title {
         font-weight: 700;
-        font-size: 15px;
-        letter-spacing: 6px;
+        font-size: 30px;
+        letter-spacing: 3px;
         text-transform: uppercase;
         color: #8a8a8a;
     }
-    .contacts { margin-top: 34px; }
+    .contacts { margin-top: 26px; }
     .contacts div {
         font-weight: 500;
-        font-size: 18px;
+        font-size: 30px;
         color: #333;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
     .tags {
-        margin-top: 18px;
-        font-size: 13px;
+        margin-top: 14px;
+        font-size: 30px;
         font-weight: 700;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         text-transform: uppercase;
         color: #b5b0a6;
     }
-    .qr-wrap {
-        text-align: center;
-        flex: none;
+    .cta {
+        margin-top: 22px;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #111;
     }
-    .qr-wrap img {
+    .photo-wrap { flex: none; }
+    .photo-wrap img {
         width: 256px;
         height: 256px;
+        object-fit: cover;
         display: block;
-        image-rendering: pixelated;
-    }
-    .qr-wrap span {
-        display: block;
-        margin-top: 14px;
-        font-size: 11px;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: #b5b0a6;
+        filter: grayscale(100%) contrast(1.05);
     }
 </style>
 </head>
@@ -84,13 +82,12 @@
             <div class="contacts">
                 <div>{{ phone }}</div>
                 <div>{{ email }}</div>
-                <div>{{ url }}</div>
-                <div class="tags">{{ tags|join(' &nbsp;&middot;&nbsp; ') }}</div>
+                <div class="tags">{{ tags|join(' &middot; ') }}</div>
             </div>
+            <div class="cta">{{ cta }}</div>
         </div>
-        <div class="qr-wrap">
-            <img src="{{ qr_uri }}" alt="QR">
-            <span>Scan</span>
+        <div class="photo-wrap">
+            <img src="{{ photo_uri }}" alt="Igors Volohovs">
         </div>
     </div>
 </body>
