@@ -175,14 +175,18 @@ of "scan me". The QR itself moved to the back as a clean centered block -
 still true to the variant's original photo/QR-as-hero idea, just split
 across both sides of the card now.
 
-This is the variant going to print first (50 copies), so it got one more
-pass: a "C++ / Python" tag next to "AI Integration", added as a plain pill
-identical to the other three rather than a muted/borderless variant that
-was also tried - the matching style keeps every tag reading as equally
-important and lands as a clean 2x2 grid, while the muted version both
-introduced a second visual language into an otherwise uniform tag row and
-risked printing inconsistently (its fill was only 6% opacity against an
-already-light background).
+This is the variant going to print first (50 copies), so it's getting one
+more detail: a "C++ / Python" label next to "AI Integration". The front
+above still ships with the label as a plain pill identical to the other
+three tags, but that's not final - Igor is weighing five different
+placements before deciding, previewed in full at
+`variant_06_qr_centerpiece/previews/` (none of them touch this front.png):
+
+1. `placement_1_equal_pill.png` - plain pill matching the other three tags, same 2x2 grid as above.
+2. `placement_2_muted_badge.png` - borderless, muted-fill badge instead of a full pill.
+3. `placement_3_caption_under_title.png` - small caption line right under "Software Engineer" instead of a tag at all.
+4. `placement_4_vertical_side_label.png` - vertical text along the card's right margin.
+5. `placement_5_inline_divider.png` - stays in the tag row, but attached to "AI Integration" via a "|" divider instead of its own pill.
 
 ## 7. Accent color
 
