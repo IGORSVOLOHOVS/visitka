@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', Arial, sans-serif; }
+    .card {
+        width: 1119px;
+        height: 615px;
+        background: #ffffff;
+        border: 10px solid #8b5cf6;
+        border-radius: 36px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+    .title-highlight {
+        display: inline-block;
+        background: linear-gradient(100deg, #ffd166, #ffb703);
+        color: #1c1c1c;
+        font-weight: 800;
+        font-size: 42px;
+        padding: 14px 34px;
+        border-radius: 6px;
+        transform: rotate(-1.5deg);
+        text-align: center;
+        white-space: nowrap;
+    }
+    .qr-frame {
+        background: #ffffff;
+        padding: 14px;
+        border: 2px solid #e4d9fb;
+        border-radius: 12px;
+    }
+    .qr-frame img { width: 320px; height: 320px; display: block; image-rendering: pixelated; }
+    .caption {
+        font-size: 32px;
+        font-weight: 600;
+        color: #555;
+        letter-spacing: 1px;
+    }
+</style>
+</head>
+<body>
+    <div class="card" id="card">
+        <div class="title-highlight">Мой портфолио и все проекты!</div>
+        <div class="qr-frame"><img src="{{ qr_uri }}" alt="QR"></div>
+        <div class="caption">{{ caption }}</div>
+    </div>
+</body>
+</html>

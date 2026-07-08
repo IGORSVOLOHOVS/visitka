@@ -1,6 +1,6 @@
 # Business card design experiments
 
-10 visually distinct concepts for the same business card content (Igors
+11 visually distinct concepts for the same business card content (Igors
 Volohovs, Software Engineer, AI Integration / Computer Vision / Robotics),
 rendered with the same pipeline as `../generator` (Jinja2 + Playwright
 screenshot at 1119x615). These are **explorations to choose from**, not a
@@ -61,12 +61,16 @@ size already used in this repo's `print.css`, 1119x615px -> 12.43px/mm):
 
 | | Value |
 |---|---|
-| QR size (print) | 20.9mm |
-| Module size | 0.57mm |
-| Decode check (all 10) | OK |
+| QR size (print), variants 1-10 | 20.9mm |
+| Module size, variants 1-10 | 0.57mm |
+| QR size (print), variant 11 | 25.7mm |
+| Module size, variant 11 | 0.70mm |
+| Decode check (all 11) | OK |
 
-Comfortably above both safe thresholds, and identical for all ten variants
-since the QR now lives on a shared back template.
+Comfortably above both safe thresholds. Variants 1-10 share one back
+template so their QR is identical in size; variant 11 has its own bespoke
+back with a deliberately larger QR block (its reference design showed a
+fairly big code), which comes out even safer.
 
 **Minimum text size.** All on-card text (down to the smallest label/tag) is
 now at or above 30px, which at the 90x50mm print scale works out to roughly
@@ -195,6 +199,34 @@ title block (now three columns - Contact / Domains / Notes - since the
 Repository/URL column was removed). The photo is labeled like a schematic
 part ("PHOTO-01") where the QR component used to sit. The QR itself moved
 to the back, still framed and captioned in the same drafting style.
+
+## 11. Split panel
+
+![variant 11 front](variant_11_split_panel/front.png)
+![variant 11 back](variant_11_split_panel/back.png)
+
+Modeled on a stock business-card template Igor sent as a reference: a dark
+gradient panel on the left with a large circular photo, a light panel on
+the right with name/title/contacts, and a solid-color tag bar running the
+full width along the bottom. Two things in the reference were corrected
+rather than copied literally - the name was mangled to "Igorrs Volohovs"
+(an obvious template-fill leftover) and is fixed here, and the back's QR
+caption read "github.com" (the same misleading-caption issue fixed on all
+other 10 variants), so it reads "portfolio" here too, matching the rest of
+the set. The back keeps the reference's own look: a rounded violet border
+and an orange highlighter-style banner behind a Russian headline instead
+of the other variants' shared back template.
+
+Two details worth a second look before this goes anywhere near a printer:
+- **"5+ years experience"**: included because the reference has it, but
+  this is a factual claim, not a style choice, and it hasn't been
+  confirmed against Igor's actual timeline - verify before printing.
+- **The "AI Intergation" typo**: the reference (and the real production
+  card in `../generator/card.json`, which reproduces it on purpose) has
+  this typo, but the other 10 variants in this folder already use the
+  corrected "AI Integration" (see `render_all.py`'s `DATA`). This variant
+  matches its 10 siblings with the corrected spelling rather than the
+  reference - flag if the typo should actually be reinstated here instead.
 
 ---
 

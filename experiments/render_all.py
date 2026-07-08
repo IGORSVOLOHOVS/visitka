@@ -1,10 +1,12 @@
 #!/usr/bin/env python
-"""Renders all 10 business card design experiments.
+"""Renders all 11 business card design experiments.
 
 Front: name/title/contacts/tags/photo + a short "portfolio on the back" CTA
 (no printed URL - that would be redundant with the QR).
-Back: QR code (encoding https://igorsvolohovs.github.io/) + "github.com"
+Back: QR code (encoding https://igorsvolohovs.github.io/) + "portfolio"
 caption, centered, styled per-variant via templates/template_back_shared.html.
+Variant 11 has its own bespoke back (template_11_split_panel_back.html)
+since its design doesn't fit the shared back template's parameters.
 """
 
 from __future__ import annotations
@@ -59,6 +61,7 @@ FRONT_VARIANTS = {
     "variant_08_corporate": ("template_08_corporate.html", "Portfolio — see reverse"),
     "variant_09_robotics": ("template_09_robotics.html", "see_reverse --portfolio"),
     "variant_10_blueprint": ("template_10_blueprint.html", "SEE SHEET 2 / PORTFOLIO"),
+    "variant_11_split_panel": ("template_11_split_panel.html", "Portfolio — see reverse"),
 }
 
 # Back side: shared template, themed per variant to match its front.
@@ -168,6 +171,15 @@ def main() -> None:
             page.set_content(html, wait_until="networkidle")
             page.locator("#card").screenshot(path=str(out_dir / "back.png"))
             print(f"Rendered {slug}/back.png")
+
+        # Variant 11 has a bespoke back (highlighted Russian title + violet
+        # frame) instead of the shared back template.
+        back_11_template = env.get_template("template_11_split_panel_back.html")
+        html = back_11_template.render(qr_uri=qr_uri, caption=QR_CAPTION)
+        out_dir = HERE / "variant_11_split_panel"
+        page.set_content(html, wait_until="networkidle")
+        page.locator("#card").screenshot(path=str(out_dir / "back.png"))
+        print("Rendered variant_11_split_panel/back.png")
 
         browser.close()
 
