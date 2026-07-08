@@ -44,6 +44,28 @@ bigger CSS number. Every crop stays at or below the source photo's native
 640x640 resolution, so nothing is upscaled past what the source can
 support.
 
+Igor later sent a new studio portrait to replace that photo everywhere
+(the old one is kept as `experiments/assets/photo_old.png` in case it's
+ever needed again). The new source is a landscape-oriented 1355x911 shot
+with the face sitting well above its vertical center (roughly 31% down,
+50% across) - so a plain `object-position: center` on the original file
+would have centered each crop on empty background/hoodie rather than the
+face, and per-template `object-position` percentages couldn't fully fix
+it either: for any square or circular crop box, `object-fit: cover` on a
+*landscape* source scales to match the box's height exactly and only
+crops left/right, leaving zero vertical crop range to shift into - the
+face would sit at the same ~31%-from-top position in every square/circle
+variant no matter what `object-position` said. The actual fix was to
+pre-crop the source photo itself into a 560x560 square centered exactly
+on the face (measured at pixel (680, 285) in the original - ears at
+x=575/785, hairline at y=190, chin at y=370), and save *that* as the new
+`photo.png`. With the face already at the exact geometric center of a
+square source, `object-fit: cover` at the default center position keeps
+it centered in every crop shape used across all 11 variants - square,
+circular, or Minimal's tall 450x535 rectangle - with no per-template CSS
+changes needed at all. 560px also comfortably covers the largest photo
+box in the set (460px, QR Centerpiece's circle) without upscaling.
+
 Every QR code encodes `https://igorsvolohovs.github.io/` and was verified
 to decode correctly (OpenCV `QRCodeDetector`). A few early color choices
 (green-on-dark, white-on-dark) looked thematically nice but failed to
