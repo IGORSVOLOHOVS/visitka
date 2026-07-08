@@ -175,6 +175,15 @@ of "scan me". The QR itself moved to the back as a clean centered block -
 still true to the variant's original photo/QR-as-hero idea, just split
 across both sides of the card now.
 
+This is the variant going to print first (50 copies), so it got one more
+pass: a "C++ / Python" tag next to "AI Integration", added as a plain pill
+identical to the other three rather than a muted/borderless variant that
+was also tried - the matching style keeps every tag reading as equally
+important and lands as a clean 2x2 grid, while the muted version both
+introduced a second visual language into an otherwise uniform tag row and
+risked printing inconsistently (its fill was only 6% opacity against an
+already-light background).
+
 ## 7. Accent color
 
 ![variant 7 front](variant_07_accent_color/front.png)

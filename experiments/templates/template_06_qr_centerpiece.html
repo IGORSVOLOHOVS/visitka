@@ -90,7 +90,7 @@
                 <div>{{ email }}</div>
             </div>
             <div class="tags">
-                {% for tag in tags %}<span>{{ tag }}</span>{% endfor %}
+                {% for tag in tags %}<span>{{ tag }}</span>{% if loop.first %}<span>C++ / Python</span>{% endif %}{% endfor %}
             </div>
         </div>
     </div>
