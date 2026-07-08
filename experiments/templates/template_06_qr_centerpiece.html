@@ -72,6 +72,22 @@
         padding: 6px 15px;
         border-radius: 999px;
     }
+    .tags .divider-glyph {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        color: #b9b3a6;
+        font-weight: 400;
+        margin: 0 2px;
+    }
+    .tags .plain-label {
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        font-size: 30px;
+        font-weight: 500;
+        color: #6b6559;
+    }
 </style>
 </head>
 <body>
@@ -90,7 +106,7 @@
                 <div>{{ email }}</div>
             </div>
             <div class="tags">
-                {% for tag in tags %}<span>{{ tag }}</span>{% if loop.first %}<span>C++ / Python</span>{% endif %}{% endfor %}
+                {% for tag in tags %}<span>{{ tag }}</span>{% if loop.first %}<span class="divider-glyph">|</span><span class="plain-label">C++ / Python</span>{% endif %}{% endfor %}
             </div>
         </div>
     </div>

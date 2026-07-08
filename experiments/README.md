@@ -175,18 +175,23 @@ of "scan me". The QR itself moved to the back as a clean centered block -
 still true to the variant's original photo/QR-as-hero idea, just split
 across both sides of the card now.
 
-This is the variant going to print first (50 copies), so it's getting one
-more detail: a "C++ / Python" label next to "AI Integration". The front
-above still ships with the label as a plain pill identical to the other
-three tags, but that's not final - Igor is weighing five different
-placements before deciding, previewed in full at
-`variant_06_qr_centerpiece/previews/` (none of them touch this front.png):
+This is the variant going to print first (50 copies), so it got one more
+detail: a "C++ / Python" label next to "AI Integration". Five placements
+were tried and previewed at `variant_06_qr_centerpiece/previews/` before
+Igor picked one - the front above now ships the chosen design: "AI
+Integration" stays a pill, followed by a thin "|" divider and "C++ /
+Python" as plain text (no pill of its own), with "Computer Vision" and
+"Robotics" wrapping to the second row. **This is the final, print-ready
+design** - front.png and back.png in this folder are what the 50 physical
+cards should be ordered from.
 
-1. `placement_1_equal_pill.png` - plain pill matching the other three tags, same 2x2 grid as above.
+The other four previews are kept in `previews/` for reference (not used):
+
+1. `placement_1_equal_pill.png` - plain pill matching the other three tags, same 2x2 grid.
 2. `placement_2_muted_badge.png` - borderless, muted-fill badge instead of a full pill.
 3. `placement_3_caption_under_title.png` - small caption line right under "Software Engineer" instead of a tag at all.
 4. `placement_4_vertical_side_label.png` - vertical text along the card's right margin.
-5. `placement_5_inline_divider.png` - stays in the tag row, but attached to "AI Integration" via a "|" divider instead of its own pill.
+5. `placement_5_inline_divider.png` - **the chosen design**, also mirrored live in front.png above.
 
 ## 7. Accent color
 
