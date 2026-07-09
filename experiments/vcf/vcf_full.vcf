@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Volohovs;Igors;;;
+FN:Igors Volohovs
+TEL;TYPE=CELL:+37127572829
+EMAIL;TYPE=INTERNET:igorsvolohovs@gmail.com
+TITLE:Software Engineer
+item1.URL:https://igorsvolohovs.github.io/
+item1.X-ABLabel:Portfolio
+item2.URL:https://github.com/IGORSVOLOHOVS/
+item2.X-ABLabel:GitHub
+END:VCARD
