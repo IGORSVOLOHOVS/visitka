@@ -58,7 +58,11 @@ image, same dimensions as front).
   `https://igorsvolohovs.github.io/`, Igor's existing personal site
   (confirmed live - same phone/email/GitHub links as this card), while `url`
   stays the printed GitHub link, unchanged. Point `qr_data` at whatever URL/
-  vCard/text you want scanning the card to open.
+  vCard/text you want scanning the card to open. (The repo's official
+  contact vCard is `../experiments/vcf/vcf_standard.vcf`; it's too big to
+  encode in a QR because of the embedded photo, but a QR-sized photo-less
+  revision exists at commit 84e7ba3 if you ever want the QR to carry the
+  vCard itself.)
 - `tags` can hold any number of entries; note the original artwork has a
   typo ("AI Intergation") which `card.json` reproduces on purpose for an
   accurate pixel comparison against the original design - fix it in your own

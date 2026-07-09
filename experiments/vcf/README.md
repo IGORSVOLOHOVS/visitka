@@ -21,6 +21,11 @@ Replacement candidates for the old "Scan to Add VCF" contact card.
 
 ## The final set: 2 files
 
+**`vcf_standard.vcf` is the OFFICIAL contact file** - Igor picked it as
+the main variant. It's what should be sent to people and what the root
+README points at. `vcf_minimal.vcf` is kept as a stripped-down fallback
+(no title/link) for contexts where even one URL feels like too much.
+
 Earlier revisions had 4 files, but after Igor's changes (photo in every
 variant, GitHub link dropped) three of them became byte-identical, so the
 set is now two honest variants instead of four duplicated names.
@@ -32,10 +37,10 @@ old VCF - the exhibition shot with the Yaskawa robot - kept uncropped
 (it's already square) and downscaled from 480x480/30 KB to a 240x240
 JPEG avatar.
 
-| File | Size | Fields |
-|---|---|---|
-| `vcf_minimal.vcf` | ~18 KB | name, phone, email, photo |
-| `vcf_standard.vcf` | ~18 KB | + Software Engineer, portfolio URL |
+| File | Size | Fields | Role |
+|---|---|---|---|
+| `vcf_standard.vcf` | ~18 KB | name, phone, email, Software Engineer, portfolio URL, photo | **Official / main** |
+| `vcf_minimal.vcf` | ~18 KB | name, phone, email, photo | Fallback |
 
 **Heads-up on QR use:** at ~18 KB neither fits in a QR code (practical
 vCard-in-QR limit is roughly 1-2 KB). These files are for sending
