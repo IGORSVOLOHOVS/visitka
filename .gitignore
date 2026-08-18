@@ -1,1 +1,8 @@
 .env
+
+# Running state of the Instagram warm-up task. It is a log of one account's
+# feed curation, and it names roughly fifty real people by handle - friends,
+# family and classmates - together with notes on which of them a script had
+# flagged to unfollow. None of them agreed to appear in a public repository,
+# and this repository is public. It is local scratch state; keep it local.
+instagram_warmup_state.md
