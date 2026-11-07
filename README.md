@@ -1,25 +1,42 @@
-# Visitka
+# visitka
 
-Business card artwork for Igors Volohovs.
+"Visitka" is Russian for "business card". This is the business card of Igors
+Volohovs: the artwork, the small script that renders it, the design experiments
+behind it, the contact files, and a one-page CV.
 
-- `front.png` — front side: QR code, name, title, contacts, and skill tags.
-- `back.png` — back side: blank.
-- `generator/` — a small tool that renders `front.png`/`back.png` from a thin
-  JSON config (name/title/contacts/tags/QR payload), so new cards can be
-  produced without touching the design. See [`generator/README.md`](generator/README.md).
-- **Contact file (vCard):**
-  [`experiments/vcf/vcf_standard.vcf`](experiments/vcf/vcf_standard.vcf) — the
-  official "add me to contacts" file (name, phone, email, title, portfolio
-  URL, photo). Replaces the old Drive-hosted VCF; note the QR in the legacy
-  `print.html`/`print_many.html` still encodes the old Drive link — see
-  [`experiments/vcf/README.md`](experiments/vcf/README.md).
+## What is here
 
-## Preview
+- `front.png` and `back.png` are the card as it stands: the front carries the
+  QR code, name, title, contacts and skill tags, and the back is blank.
+- `generator/` renders those two images from `card.json`, a config that holds
+  content only. `generate.py` fills the Jinja2 `template.html`, embeds a QR code
+  and takes a screenshot with headless Chromium through Playwright.
+  `generator/README.md` has the setup and the config fields. Its
+  `requirements.txt` is the only dependency list, and nothing in this
+  repository's checks runs the script.
+- `experiments/` holds eleven other designs for the same content:
+  `templates/` is their HTML, `variant_*/` the rendered sides, and
+  `render_all.py` renders them all. `experiments/README.md` explains the layout.
+- `experiments/vcf/` holds the vCard files. `vcf_standard.vcf` is the official
+  contact file and `vcf_minimal.vcf` a shorter fallback.
+- `print.html`, `print_many.html` and `print.css` are pages for printing cards at
+  90 x 50 mm, using `QR code VCF.jpg` and `webpage qr code.png`. They are in
+  Russian, and so is the name of the PDF printed from `print_many.html`.
+- `cv.html` and `CV_Igors_Volohovs_OnePage.pdf` are the one-page CV. `cv.html`
+  names an `image.png` that is not in this repository.
+- `me.png` is a portrait.
 
-**Front**
+## Working on it
 
-![front](front.png)
+This repository ships no program: it is documents, images and two small
+scripts. `.\recipe.ps1` is still its whole interface: `.\recipe.ps1 test` runs
+pytest and ruff over `.claude`, and `.\recipe.ps1 info` prints the metadata. The
+other verbs print `nothing to <verb>`. `CLAUDE.md` holds the rules.
 
-**Back**
+## License
 
-![back](back.png)
+MIT. See [LICENSE](LICENSE).
+
+## Lab requirements
+
+This repository complies with [revision 4.0.0](http://127.0.0.1:3000/igors-lab/software-requirements/src/tag/v4.0.0/BEST_REQUIREMENTS.md) of the lab requirements, except R-02 (#7), R-09 (#8), R-37 (#9), R-41 (#10), R-42 (#11).
