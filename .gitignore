@@ -1,8 +1,28 @@
-.env
+# Built, fetched and scratch - only ever at the root
+/dist/
+/build/
+/out/
+/tmp/
+/.venv/
+/.coverage
 
-# Running state of the Instagram warm-up task. It is a log of one account's
-# feed curation, and it names roughly fifty real people by handle - friends,
-# family and classmates - together with notes on which of them a script had
-# flagged to unfollow. None of them agreed to appear in a public repository,
-# and this repository is public. It is local scratch state; keep it local.
+# What the tools cache, wherever they run
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Prompt text, and one person's Claude Code settings
+.claude/logs/
+.claude/settings.local.json
+
+# No .env line: .claude/.env holds the keys and is committed on purpose (R-02).
+# DEVIATION from the line above, decided by the repository owner: no key is
+# ever committed, so .claude/.env is ignored here. Rule 4 of CLAUDE.md is
+# where that reversal is written down.
+.claude/.env
+
+# What this repository writes, kept from before the lab
+.env
 instagram_warmup_state.md
