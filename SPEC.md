@@ -3,6 +3,27 @@
 Reverse-engineered from commit `0e235cf` on 2026-11-18. It describes what the
 files do, not what they should do. Hub: [docs/README.md](docs/README.md).
 
+<!-- jira-sync:start -->
+Jira: KAN-102
+
+## Tasks
+
+This list is one ticket in Jira project KAN, [KAN-102](https://igorsvolohovs.atlassian.net/browse/KAN-102). Each line is a checkbox there: tick it in Jira and the sync ticks it here; add a checkbox there and it is appended here. Done items are the features described in section 3; open items are what the project declares but the code does not do yet.
+
+- [x] Card generator (`generator/generate.py`) (section 3.1) <!-- spec-card-generator-generator-generate-py -->
+- [x] Design experiments (`experiments/render_all.py`) (section 3.2) <!-- spec-design-experiments-experiments-renderall-py -->
+- [x] Print pages (section 3.3) <!-- spec-print-pages -->
+- [x] Content files (section 3.4) <!-- spec-content-files -->
+- [x] Repository interface (section 3.5) <!-- spec-repository-interface -->
+- [ ] Pixel and SSIM comparison with the original artwork (declared, not implemented) <!-- spec-pixel-and-ssim-comparison-with-the-original-artwor -->
+- [ ] Every QR decodes correctly (OpenCV) (declared, not implemented) <!-- spec-every-qr-decodes-correctly-opencv -->
+- [ ] vCards use CRLF line endings (declared, not implemented) <!-- spec-vcards-use-crlf-line-endings -->
+- [ ] A QR that carries a vCard directly (declared, not implemented) <!-- spec-a-qr-that-carries-a-vcard-directly -->
+- [ ] CV portrait (declared, not implemented) <!-- spec-cv-portrait -->
+- [ ] CV PDF built from `cv.html` (declared, not implemented) <!-- spec-cv-pdf-built-from-cv-html -->
+
+<!-- jira-sync:end -->
+
 ## 1. Purpose and scope
 
 The repository produces and stores one person's business card and related
